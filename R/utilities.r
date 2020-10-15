@@ -42,13 +42,13 @@ export_dataset <- function(x, path = paste0(getwd(), "/", deparse(substitute(x))
 get_correlation_coefficient <- function(size, direction = "p", seed_number = 1) {
   set.seed(seed_number)
   if(size == "w") {
-    output <- sample(0:10, 1) * .01
+    output <- sample(seq(from = 0, to = 0.1, by = 0.0001), 1, replace = TRUE)
   } else if(size == "s") {
-    output <- sample(11:29, 1) * .01
+    output <- sample(seq(from = 0.11, to = 0.29, by = 0.0001), 1, replace = TRUE)
   } else if(size == "m") {
-    output <- sample(30:49, 1) * .01
+    output <- sample(seq(from = 0.3, to = 0.49, by = 0.0001), 1, replace = TRUE)
   }  else if(size == "l") {
-    output <- sample(50:70, 1) * .01
+    output <- sample(seq(from = 0.5, to = 0.7, by = 0.0001), 1, replace = TRUE)
   } else {
     output <- NA
   }
