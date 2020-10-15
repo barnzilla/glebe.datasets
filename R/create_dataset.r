@@ -139,7 +139,12 @@ get_dataset <- function(n = 1000) {
   row.names(cov_mat) <- colnames(cov_mat)
 
   # Generate correlated dataset
-  d <- genCorData(n, mu = c(25, 0.5, 1, 42, 4, 13, 4.5, 3.8, 0.1, 22), sigma = c(2, 0.1, 3, 3, 1, 2, 1.1, 1.1, 1, 1.5), corMatrix = unname(as.matrix(cov_mat)), cnames = "age,gender,ethnicity,vo2max,mvpa,sprint,confidence,wellbeing,status,bmi")
+  d <- genCorData(
+	n, 
+	mu = c(25, 0.5, 1, 42, 4, 13, 4.5, 3.8, 0.1, 22), sigma = c(2, 0.1, 3, 3, 1, 2, 1.1, 1.1, 1, 1.5), 
+	corMatrix = unname(as.matrix(cov_mat)), 
+	cnames = "age,gender,ethnicity,vo2max,mvpa,sprint,confidence,wellbeing,caffeine,bmi"
+  )
 
   # Data wrangling
   d$age <- round(rescale(d$age, to = c(17, 30)))
@@ -149,13 +154,13 @@ get_dataset <- function(n = 1000) {
   d$sprint <- rescale(d$sprint, to = c(10, 20))
   d$confidence <- rescale(d$confidence, to = c(1, 7))
   d$wellbeing <- rescale(d$wellbeing, to = c(1, 5))
-  d$status <- rescale(d$status, to = c(0, 1))
-  d$status <- ifelse(d$status < 0.6, 0, 1)
+  d$caffeine <- rescale(d$caffeine, to = c(0, 1))
+  d$caffeine <- ifelse(d$caffeine < 0.6, 0, 1)
 
   # More data wrangling
   d$gender <- factor(d$gender, levels = 0:1, labels = c("Female", "Male"))
   d$ethnicity <- factor(d$ethnicity, levels = 1:5, labels = c("Asian", "Hispanic", "Caucasian", "African-American", "Multiracial"))
-  d$status <- factor(d$status, levels = 0:1, labels = c("Recreational athlete", "Elite Athlete"))
+  d$caffeine <- factor(d$caffeine, levels = 0:1, labels = c("Non-ingester", "Ingester"))
   d <- as.data.frame(d)
   d <- d[order(colnames(d))]
   d <- d[, ! colnames(d) %in% "id"]
