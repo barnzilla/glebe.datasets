@@ -1,0 +1,104 @@
+---
+title: "Introduction to the `glebe.datasets` R package"
+author: "Joel D. Barnes, M.Sc. and Michelle D. Guerrero, Ph.D."
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 4
+    fig_caption: yes
+vignette: >
+  %\VignetteIndexEntry{Introduction to the `glebe.datasets` R package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+<style>
+  img { border: 0;}
+  p { margin-top: 1rem;line-height: 1.5rem; }
+  a, a:visited { color: #00a79d; }
+  a:hover { color: #333376; }
+</style>
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r klippy, echo = FALSE, include = TRUE, eval = FALSE}
+klippy::klippy(position = c("top", "right"))
+```
+
+## Introduction
+
+This package contains tools to create demo datasets for instructional use (e.g., in undergraduate statistics classes).
+
+## Installation
+### Source package
+
+Users can download and install the source package by calling the `install.packages()` function from the `utils` R package, which comes pre-installed with R.
+
+```{r warning = FALSE, message = FALSE, eval = FALSE}
+utils::install.packages(
+  pkgs = "https://github.com/barnzilla/r-package-sources/raw/master/glebe.datasets_0.6.tar.gz",
+  repos = NULL, 
+  type = "source"
+)
+library(glebe.datasets)
+```
+
+### GitHub
+
+The most recent version of the `glebe.datasets` R package is also available on GitHub: <a href="https://github.com/barnzilla/glebe.datasets" target="_blank">www.github.com/barnzilla/glebe.datasets</a>. The `devtools` R package allows users to download and install the `glebe.datasets` R package directly from GitHub.
+
+```{r warning = FALSE, message = FALSE, eval = FALSE}
+devtools::install_github("barnzilla/glebe.datasets", upgrade = "never", build_vignettes = TRUE, force = TRUE)
+library(glebe.datasets)
+```
+
+```{r warning = FALSE, message = FALSE, echo = FALSE}
+library(glebe.datasets)
+```
+
+Once the `glebe.datasets` R package is loaded, any available tutorials for the package, such as this vignette, can be accessed by calling the `browseVignettes()` function.
+
+```{r warning = FALSE, message = FALSE, eval = FALSE}
+browseVignettes("glebe.datasets")
+```
+
+## Getting started
+### Create a demo dataset
+
+Users can createa a demo dataset by calling the `get_dataset()` function. This function takes one argument, `n`, which represents the number of participants (rows) that will be in the dataset.
+
+```{r}
+demo_dataset <- get_dataset(n = 500)
+```
+
+### Examine the structure of the dataset
+
+The structure of the dataset can be examined by calling the `str()` function that comes pre-installed with R.
+
+```{r}
+str(demo_dataset)
+```
+
+### Export the dataset
+
+Users can export a demo dataset to either Excel or SPSS using the `export_dataset()` function.
+
+```{r eval = FALSE}
+export_dataset(
+  demo_dataset, 
+  path = "c:/users/joel/desktop/demo_dataset.xlsx", 
+  type = "spss"
+)
+
+export_dataset(
+  demo_dataset, 
+  path = "c:/users/joel/desktop/demo_dataset.spss", 
+  type = "spss"
+)
+```
