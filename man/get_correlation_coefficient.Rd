@@ -14,7 +14,7 @@ get_correlation_coefficient(size, direction = "p", seed_number = 1)
 \item{seed_number}{A numeric (integer) element that allows a randomly generated effect size to be reproduced. This parameter is set to 1 by default.}
 }
 \value{
-Returns a numeric element between -0.70 and 0.70.
+Returns a numeric element between -0.7000 and 0.7000.
 }
 \description{
 This function randomly creates a correlation coefficient.

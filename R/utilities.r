@@ -38,7 +38,7 @@ export_dataset <- function(x, path = paste0(getwd(), "/", deparse(substitute(x))
 #' @param seed_number A numeric (integer) element that allows a randomly generated effect size to be reproduced. This parameter is set to 1 by default.
 #'
 #'
-#' @return Returns a numeric element between -0.70 and 0.70.
+#' @return Returns a numeric element between -0.7000 and 0.7000.
 get_correlation_coefficient <- function(size, direction = "p", seed_number = 1) {
   set.seed(seed_number)
   if(size == "w") {

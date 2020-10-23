@@ -4,6 +4,7 @@
 #'
 #' @export
 #'
+#' @importFrom lqmm make.positive.definite is.positive.definite
 #' @importFrom scales rescale
 #' @importFrom simstudy genCorData
 #'
@@ -25,7 +26,18 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("w", "p", 40),
       get_correlation_coefficient("s", "p", 48),
       get_correlation_coefficient("w", "n", 57),
-      get_correlation_coefficient("w", "p", 67)
+      get_correlation_coefficient("w", "p", 67),
+      get_correlation_coefficient("w", "p", 77),
+      get_correlation_coefficient("w", "p", 89),
+      get_correlation_coefficient("w", "n", 102),
+      get_correlation_coefficient("w", "n", 116),
+      get_correlation_coefficient("w", "n", 131),
+      get_correlation_coefficient("s", "p", 147),
+      get_correlation_coefficient("w", "p", 164),
+      get_correlation_coefficient("w", "n", 182),
+      get_correlation_coefficient("s", "n", 201),
+      get_correlation_coefficient("w", "p", 222),
+      get_correlation_coefficient("w", "p", 243)
     ),
     gender = c(
       get_correlation_coefficient("w", "p", 1),
@@ -39,7 +51,18 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("s", "p", 41),
       get_correlation_coefficient("s", "p", 49),
       get_correlation_coefficient("m", "p", 58),
-      get_correlation_coefficient("m", "p", 68)
+      get_correlation_coefficient("m", "p", 68),
+      get_correlation_coefficient("w", "n", 78),
+      get_correlation_coefficient("w", "p", 90),
+      get_correlation_coefficient("s", "n", 103),
+      get_correlation_coefficient("s", "n", 117),
+      get_correlation_coefficient("w", "n", 132),
+      get_correlation_coefficient("m", "p", 148),
+      get_correlation_coefficient("s", "n", 165),
+      get_correlation_coefficient("w", "p", 183),
+      get_correlation_coefficient("w", "n", 202),
+      get_correlation_coefficient("w", "p", 223),
+      get_correlation_coefficient("w", "p", 244)
     ),
     ethnicity = c(
       get_correlation_coefficient("w", "p", 2),
@@ -53,7 +76,18 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("s", "p", 42),
       get_correlation_coefficient("w", "p", 50),
       get_correlation_coefficient("w", "p", 59),
-      get_correlation_coefficient("w", "p", 69)
+      get_correlation_coefficient("w", "p", 69),
+      get_correlation_coefficient("s", "p", 79),
+      get_correlation_coefficient("w", "p", 91),
+      get_correlation_coefficient("w", "p", 104),
+      get_correlation_coefficient("w", "n", 118),
+      get_correlation_coefficient("w", "n", 133),
+      get_correlation_coefficient("s", "p", 149),
+      get_correlation_coefficient("w", "p", 166),
+      get_correlation_coefficient("w", "p", 184),
+      get_correlation_coefficient("w", "p", 203),
+      get_correlation_coefficient("w", "p", 224),
+      get_correlation_coefficient("w", "p", 245)
     ),
     vo2max = c(
       get_correlation_coefficient("m", "n", 4),
@@ -67,7 +101,18 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("l", "p", 43),
       get_correlation_coefficient("s", "n", 51),
       get_correlation_coefficient("w", "p", 60),
-      get_correlation_coefficient("l", "p", 70)
+      get_correlation_coefficient("l", "p", 70),
+      get_correlation_coefficient("m", "p", 80),
+      get_correlation_coefficient("w", "p", 92),
+      get_correlation_coefficient("s", "n", 105),
+      get_correlation_coefficient("w", "p", 119),
+      get_correlation_coefficient("s", "n", 134),
+      get_correlation_coefficient("m", "n", 150),
+      get_correlation_coefficient("w", "p", 167),
+      get_correlation_coefficient("w", "p", 185),
+      get_correlation_coefficient("s", "p", 204),
+      get_correlation_coefficient("w", "p", 225),
+      get_correlation_coefficient("w", "p", 246)
     ),
     mvpa = c(
       get_correlation_coefficient("m", "n", 7),
@@ -81,7 +126,18 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("s", "p", 44),
       get_correlation_coefficient("s", "n", 52),
       get_correlation_coefficient("m", "p", 61),
-      get_correlation_coefficient("l", "p", 71)
+      get_correlation_coefficient("l", "p", 71),
+      get_correlation_coefficient("m", "p", 81),
+      get_correlation_coefficient("w", "p", 93),
+      get_correlation_coefficient("w", "p", 106),
+      get_correlation_coefficient("w", "p", 120),
+      get_correlation_coefficient("s", "p", 135),
+      get_correlation_coefficient("m", "n", 151),
+      get_correlation_coefficient("w", "p", 168),
+      get_correlation_coefficient("w", "p", 186),
+      get_correlation_coefficient("s", "p", 205),
+      get_correlation_coefficient("w", "p", 226),
+      get_correlation_coefficient("w", "p", 247)
     ),
     sprint = c(
       get_correlation_coefficient("s", "p", 22),
@@ -95,7 +151,18 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("m", "n", 45),
       get_correlation_coefficient("m", "p", 53),
       get_correlation_coefficient("s", "p", 62),
-      get_correlation_coefficient("m", "p", 72)
+      get_correlation_coefficient("m", "p", 72),
+      get_correlation_coefficient("w", "p", 82),
+      get_correlation_coefficient("w", "p", 94),
+      get_correlation_coefficient("w", "p", 107),
+      get_correlation_coefficient("w", "p", 121),
+      get_correlation_coefficient("s", "p", 136),
+      get_correlation_coefficient("s", "n", 152),
+      get_correlation_coefficient("w", "p", 169),
+      get_correlation_coefficient("w", "p", 187),
+      get_correlation_coefficient("s", "p", 206),
+      get_correlation_coefficient("w", "p", 227),
+      get_correlation_coefficient("w", "p", 248)
     ),
     confidence = c(
       get_correlation_coefficient("w", "p", 27),
@@ -109,7 +176,18 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("s", "p", 46),
       get_correlation_coefficient("m", "n", 54),
       get_correlation_coefficient("w", "n", 63),
-      get_correlation_coefficient("w", "p", 73)
+      get_correlation_coefficient("w", "p", 73),
+      get_correlation_coefficient("w", "p", 83),
+      get_correlation_coefficient("w", "p", 95),
+      get_correlation_coefficient("w", "p", 108),
+      get_correlation_coefficient("w", "p", 122),
+      get_correlation_coefficient("w", "n", 137),
+      get_correlation_coefficient("s", "n", 153),
+      get_correlation_coefficient("w", "n", 170),
+      get_correlation_coefficient("w", "n", 188),
+      get_correlation_coefficient("w", "p", 207),
+      get_correlation_coefficient("w", "n", 228),
+      get_correlation_coefficient("w", "p", 249)
     ),
     wellbeing = c(
       get_correlation_coefficient("w", "n", 33),
@@ -123,7 +201,18 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("w", "p", 47),
       get_correlation_coefficient("s", "n", 55),
       get_correlation_coefficient("w", "p", 64),
-      get_correlation_coefficient("s", "p", 74)
+      get_correlation_coefficient("s", "p", 74),
+      get_correlation_coefficient("w", "p", 84),
+      get_correlation_coefficient("w", "p", 96),
+      get_correlation_coefficient("w", "p", 109),
+      get_correlation_coefficient("w", "n", 123),
+      get_correlation_coefficient("w", "p", 138),
+      get_correlation_coefficient("w", "n", 154),
+      get_correlation_coefficient("w", "n", 171),
+      get_correlation_coefficient("s", "p", 189),
+      get_correlation_coefficient("s", "p", 208),
+      get_correlation_coefficient("s", "p", 229),
+      get_correlation_coefficient("w", "p", 250)
     ),
     caffeine = c(
       get_correlation_coefficient("w", "p", 40),
@@ -137,7 +226,18 @@ get_dataset <- function(n = 1000) {
       1,
       get_correlation_coefficient("s", "n", 56),
       get_correlation_coefficient("w", "p", 65),
-      get_correlation_coefficient("m", "p", 75)
+      get_correlation_coefficient("m", "p", 75),
+      get_correlation_coefficient("w", "p", 85),
+      get_correlation_coefficient("w", "p", 97),
+      get_correlation_coefficient("s", "p", 110),
+      get_correlation_coefficient("w", "n", 124),
+      get_correlation_coefficient("w", "n", 139),
+      get_correlation_coefficient("s", "p", 155),
+      get_correlation_coefficient("w", "p", 172),
+      get_correlation_coefficient("w", "n", 190),
+      get_correlation_coefficient("w", "n", 209),
+      get_correlation_coefficient("w", "n", 230),
+      get_correlation_coefficient("w", "p", 251)
     ),
     bmi = c(
       get_correlation_coefficient("s", "p", 48),
@@ -151,7 +251,18 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("s", "n", 56),
       1,
       get_correlation_coefficient("w", "p", 66),
-      get_correlation_coefficient("m", "n", 76)
+      get_correlation_coefficient("m", "n", 76),
+      get_correlation_coefficient("w", "p", 86),
+      get_correlation_coefficient("w", "p", 98),
+      get_correlation_coefficient("s", "p", 111),
+      get_correlation_coefficient("s", "p", 125),
+      get_correlation_coefficient("m", "p", 140),
+      get_correlation_coefficient("l", "p", 156),
+      get_correlation_coefficient("s", "p", 173),
+      get_correlation_coefficient("w", "p", 191),
+      get_correlation_coefficient("s", "n", 210),
+      get_correlation_coefficient("w", "p", 231),
+      get_correlation_coefficient("w", "p", 252)
     ),
     push_ups = c(
       get_correlation_coefficient("w", "n", 57),
@@ -165,9 +276,20 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("w", "p", 65),
       get_correlation_coefficient("w", "p", 66),
       1,
-      get_correlation_coefficient("s", "p", 77)
+      get_correlation_coefficient("s", "p", 77),
+      get_correlation_coefficient("m", "p", 87),
+      get_correlation_coefficient("w", "p", 99),
+      get_correlation_coefficient("w", "p", 112),
+      get_correlation_coefficient("w", "n", 126),
+      get_correlation_coefficient("s", "n", 141),
+      get_correlation_coefficient("s", "n", 157),
+      get_correlation_coefficient("s", "p", 174),
+      get_correlation_coefficient("s", "p", 192),
+      get_correlation_coefficient("s", "p", 211),
+      get_correlation_coefficient("s", "p", 232),
+      get_correlation_coefficient("w", "p", 253)
     ),
-    heart_rate_time1 = c(
+    heart_rate_t1 = c(
       get_correlation_coefficient("w", "p", 67),
       get_correlation_coefficient("m", "p", 68),
       get_correlation_coefficient("w", "p", 69),
@@ -179,6 +301,292 @@ get_dataset <- function(n = 1000) {
       get_correlation_coefficient("m", "p", 75),
       get_correlation_coefficient("m", "n", 76),
       get_correlation_coefficient("s", "p", 77),
+      1,
+      get_correlation_coefficient("m", "p", 88),
+      get_correlation_coefficient("w", "p", 100),
+      get_correlation_coefficient("w", "n", 113),
+      get_correlation_coefficient("w", "n", 127),
+      get_correlation_coefficient("s", "n", 142),
+      get_correlation_coefficient("s", "p", 158),
+      get_correlation_coefficient("w", "n", 175),
+      get_correlation_coefficient("s", "p", 193),
+      get_correlation_coefficient("s", "n", 212),
+      get_correlation_coefficient("s", "p", 233),
+      get_correlation_coefficient("w", "p", 254)
+    ),
+    heart_rate_t2 = c(
+      get_correlation_coefficient("w", "p", 77),
+      get_correlation_coefficient("w", "n", 78),
+      get_correlation_coefficient("s", "p", 79),
+      get_correlation_coefficient("m", "p", 80),
+      get_correlation_coefficient("m", "p", 81),
+      get_correlation_coefficient("w", "p", 82),
+      get_correlation_coefficient("w", "p", 83),
+      get_correlation_coefficient("w", "p", 84),
+      get_correlation_coefficient("w", "p", 85),
+      get_correlation_coefficient("w", "p", 86),
+      get_correlation_coefficient("m", "p", 87),
+      get_correlation_coefficient("m", "p", 88),
+      1,
+      get_correlation_coefficient("w", "p", 101),
+      get_correlation_coefficient("w", "n", 114),
+      get_correlation_coefficient("w", "p", 128),
+      get_correlation_coefficient("s", "p", 143),
+      get_correlation_coefficient("s", "p", 159),
+      get_correlation_coefficient("w", "p", 176),
+      get_correlation_coefficient("w", "n", 194),
+      get_correlation_coefficient("s", "n", 213),
+      get_correlation_coefficient("w", "n", 234),
+      get_correlation_coefficient("w", "p", 255)
+    ),
+    heart_rate_t3 = c(
+      get_correlation_coefficient("w", "p", 89),
+      get_correlation_coefficient("w", "p", 90),
+      get_correlation_coefficient("w", "p", 91),
+      get_correlation_coefficient("w", "p", 92),
+      get_correlation_coefficient("w", "p", 93),
+      get_correlation_coefficient("w", "p", 94),
+      get_correlation_coefficient("w", "p", 95),
+      get_correlation_coefficient("w", "p", 96),
+      get_correlation_coefficient("w", "p", 97),
+      get_correlation_coefficient("w", "p", 98),
+      get_correlation_coefficient("w", "p", 99),
+      get_correlation_coefficient("w", "p", 100),
+      get_correlation_coefficient("w", "p", 101),
+      1,
+      get_correlation_coefficient("w", "n", 115),
+      get_correlation_coefficient("w", "p", 129),
+      get_correlation_coefficient("s", "p", 144),
+      get_correlation_coefficient("s", "p", 160),
+      get_correlation_coefficient("s", "p", 177),
+      get_correlation_coefficient("w", "p", 195),
+      get_correlation_coefficient("s", "n", 214),
+      get_correlation_coefficient("w", "p", 235),
+      get_correlation_coefficient("w", "p", 256)
+    ),
+    caloric_morning = c(
+      get_correlation_coefficient("w", "n", 102),
+      get_correlation_coefficient("s", "n", 103),
+      get_correlation_coefficient("w", "p", 104),
+      get_correlation_coefficient("s", "n", 105),
+      get_correlation_coefficient("w", "p", 106),
+      get_correlation_coefficient("w", "p", 107),
+      get_correlation_coefficient("w", "p", 108),
+      get_correlation_coefficient("w", "p", 109),
+      get_correlation_coefficient("s", "p", 110),
+      get_correlation_coefficient("s", "p", 111),
+      get_correlation_coefficient("w", "p", 112),
+      get_correlation_coefficient("w", "n", 113),
+      get_correlation_coefficient("w", "n", 114),
+      get_correlation_coefficient("w", "n", 115),
+      1,
+      get_correlation_coefficient("w", "p", 130),
+      get_correlation_coefficient("w", "n", 145),
+      get_correlation_coefficient("s", "p", 161),
+      get_correlation_coefficient("w", "p", 178),
+      get_correlation_coefficient("w", "p", 196),
+      get_correlation_coefficient("w", "n", 215),
+      get_correlation_coefficient("w", "p", 236),
+      get_correlation_coefficient("w", "p", 257)
+    ),
+    caloric_lunch = c(
+      get_correlation_coefficient("w", "n", 116),
+      get_correlation_coefficient("s", "n", 117),
+      get_correlation_coefficient("w", "n", 118),
+      get_correlation_coefficient("w", "p", 119),
+      get_correlation_coefficient("w", "p", 120),
+      get_correlation_coefficient("w", "p", 121),
+      get_correlation_coefficient("w", "p", 122),
+      get_correlation_coefficient("w", "n", 123),
+      get_correlation_coefficient("w", "n", 124),
+      get_correlation_coefficient("s", "p", 125),
+      get_correlation_coefficient("w", "n", 126),
+      get_correlation_coefficient("w", "n", 127),
+      get_correlation_coefficient("w", "p", 128),
+      get_correlation_coefficient("w", "p", 129),
+      get_correlation_coefficient("w", "p", 130),
+      1,
+      get_correlation_coefficient("s", "p", 146),
+      get_correlation_coefficient("s", "p", 162),
+      get_correlation_coefficient("w", "p", 179),
+      get_correlation_coefficient("w", "n", 197),
+      get_correlation_coefficient("w", "n", 216),
+      get_correlation_coefficient("w", "n", 237),
+      get_correlation_coefficient("w", "p", 258)
+    ),
+    caloric_evening = c(
+      get_correlation_coefficient("w", "n", 131),
+      get_correlation_coefficient("w", "n", 132),
+      get_correlation_coefficient("w", "n", 133),
+      get_correlation_coefficient("s", "n", 134),
+      get_correlation_coefficient("s", "p", 135),
+      get_correlation_coefficient("s", "p", 136),
+      get_correlation_coefficient("w", "n", 137),
+      get_correlation_coefficient("w", "p", 138),
+      get_correlation_coefficient("w", "n", 139),
+      get_correlation_coefficient("m", "p", 140),
+      get_correlation_coefficient("s", "n", 141),
+      get_correlation_coefficient("s", "n", 142),
+      get_correlation_coefficient("s", "p", 143),
+      get_correlation_coefficient("s", "p", 144),
+      get_correlation_coefficient("w", "n", 145),
+      get_correlation_coefficient("s", "p", 146),
+      1,
+      get_correlation_coefficient("s", "p", 163),
+      get_correlation_coefficient("w", "p", 180),
+      get_correlation_coefficient("w", "n", 198),
+      get_correlation_coefficient("w", "n", 217),
+      get_correlation_coefficient("w", "n", 238),
+      get_correlation_coefficient("w", "p", 259)
+    ),
+    weight = c(
+      get_correlation_coefficient("s", "p", 147),
+      get_correlation_coefficient("m", "p", 148),
+      get_correlation_coefficient("s", "p", 149),
+      get_correlation_coefficient("m", "n", 150),
+      get_correlation_coefficient("m", "n", 151),
+      get_correlation_coefficient("s", "n", 152),
+      get_correlation_coefficient("s", "n", 153),
+      get_correlation_coefficient("w", "n", 154),
+      get_correlation_coefficient("s", "p", 155),
+      get_correlation_coefficient("l", "p", 156),
+      get_correlation_coefficient("s", "n", 157),
+      get_correlation_coefficient("s", "p", 158),
+      get_correlation_coefficient("s", "p", 159),
+      get_correlation_coefficient("s", "p", 160),
+      get_correlation_coefficient("s", "p", 161),
+      get_correlation_coefficient("s", "p", 162),
+      get_correlation_coefficient("s", "p", 163),
+      1,
+      get_correlation_coefficient("s", "p", 181),
+      get_correlation_coefficient("s", "p", 199),
+      get_correlation_coefficient("m", "n", 218),
+      get_correlation_coefficient("s", "p", 239),
+      get_correlation_coefficient("w", "p", 260)
+    ),
+    carb_intake = c(
+      get_correlation_coefficient("w", "p", 164),
+      get_correlation_coefficient("s", "n", 165),
+      get_correlation_coefficient("w", "p", 166),
+      get_correlation_coefficient("w", "p", 167),
+      get_correlation_coefficient("w", "p", 168),
+      get_correlation_coefficient("w", "p", 169),
+      get_correlation_coefficient("w", "n", 170),
+      get_correlation_coefficient("w", "n", 171),
+      get_correlation_coefficient("w", "p", 172),
+      get_correlation_coefficient("s", "p", 173),
+      get_correlation_coefficient("s", "p", 174),
+      get_correlation_coefficient("w", "n", 175),
+      get_correlation_coefficient("w", "p", 176),
+      get_correlation_coefficient("s", "p", 177),
+      get_correlation_coefficient("w", "p", 178),
+      get_correlation_coefficient("w", "p", 179),
+      get_correlation_coefficient("w", "p", 180),
+      get_correlation_coefficient("s", "p", 181),
+      1,
+      get_correlation_coefficient("s", "p", 200),
+      get_correlation_coefficient("w", "p", 219),
+      get_correlation_coefficient("s", "p", 240),
+      get_correlation_coefficient("w", "p", 261)
+    ),
+    sport_type = c(
+      get_correlation_coefficient("w", "n", 182),
+      get_correlation_coefficient("w", "p", 183),
+      get_correlation_coefficient("w", "p", 184),
+      get_correlation_coefficient("w", "p", 185),
+      get_correlation_coefficient("w", "p", 186),
+      get_correlation_coefficient("w", "p", 187),
+      get_correlation_coefficient("w", "n", 188),
+      get_correlation_coefficient("s", "p", 189),
+      get_correlation_coefficient("w", "n", 190),
+      get_correlation_coefficient("w", "p", 191),
+      get_correlation_coefficient("s", "p", 192),
+      get_correlation_coefficient("s", "p", 193),
+      get_correlation_coefficient("w", "n", 194),
+      get_correlation_coefficient("w", "p", 195),
+      get_correlation_coefficient("w", "p", 196),
+      get_correlation_coefficient("w", "n", 197),
+      get_correlation_coefficient("w", "n", 198),
+      get_correlation_coefficient("s", "p", 199),
+      get_correlation_coefficient("s", "p", 200),
+      1,
+      get_correlation_coefficient("w", "p", 220),
+      get_correlation_coefficient("s", "p", 241),
+      get_correlation_coefficient("w", "p", 262)
+    ),
+    hours_of_sleep = c(
+      get_correlation_coefficient("s", "n", 201),
+      get_correlation_coefficient("w", "n", 202),
+      get_correlation_coefficient("w", "p", 203),
+      get_correlation_coefficient("s", "p", 204),
+      get_correlation_coefficient("s", "p", 205),
+      get_correlation_coefficient("s", "p", 206),
+      get_correlation_coefficient("w", "p", 207),
+      get_correlation_coefficient("s", "p", 208),
+      get_correlation_coefficient("w", "n", 209),
+      get_correlation_coefficient("s", "n", 210),
+      get_correlation_coefficient("s", "p", 211),
+      get_correlation_coefficient("s", "n", 212),
+      get_correlation_coefficient("s", "n", 213),
+      get_correlation_coefficient("s", "n", 214),
+      get_correlation_coefficient("w", "n", 215),
+      get_correlation_coefficient("w", "n", 216),
+      get_correlation_coefficient("w", "n", 217),
+      get_correlation_coefficient("m", "n", 218),
+      get_correlation_coefficient("w", "p", 219),
+      get_correlation_coefficient("w", "p", 220),
+      1,
+      get_correlation_coefficient("s", "p", 242),
+      get_correlation_coefficient("w", "p", 263)
+    ),
+    optimism = c(
+      get_correlation_coefficient("w", "p", 222),
+      get_correlation_coefficient("w", "p", 223),
+      get_correlation_coefficient("w", "p", 224),
+      get_correlation_coefficient("w", "p", 225),
+      get_correlation_coefficient("w", "p", 226),
+      get_correlation_coefficient("w", "p", 227),
+      get_correlation_coefficient("w", "n", 228),
+      get_correlation_coefficient("s", "p", 229),
+      get_correlation_coefficient("w", "n", 230),
+      get_correlation_coefficient("w", "p", 231),
+      get_correlation_coefficient("s", "p", 232),
+      get_correlation_coefficient("s", "p", 233),
+      get_correlation_coefficient("w", "n", 234),
+      get_correlation_coefficient("w", "p", 235),
+      get_correlation_coefficient("w", "p", 236),
+      get_correlation_coefficient("w", "n", 237),
+      get_correlation_coefficient("w", "n", 238),
+      get_correlation_coefficient("s", "p", 239),
+      get_correlation_coefficient("s", "p", 240),
+      get_correlation_coefficient("s", "p", 241),
+      get_correlation_coefficient("s", "p", 242),
+      1,
+      get_correlation_coefficient("w", "p", 264)
+    ),
+    playing_status = c(
+      get_correlation_coefficient("w", "p", 243),
+      get_correlation_coefficient("w", "p", 244),
+      get_correlation_coefficient("w", "p", 245),
+      get_correlation_coefficient("w", "p", 246),
+      get_correlation_coefficient("w", "p", 247),
+      get_correlation_coefficient("w", "p", 248),
+      get_correlation_coefficient("w", "p", 249),
+      get_correlation_coefficient("w", "p", 250),
+      get_correlation_coefficient("w", "p", 251),
+      get_correlation_coefficient("w", "p", 252),
+      get_correlation_coefficient("w", "p", 253),
+      get_correlation_coefficient("w", "p", 254),
+      get_correlation_coefficient("w", "p", 255),
+      get_correlation_coefficient("w", "p", 256),
+      get_correlation_coefficient("w", "p", 257),
+      get_correlation_coefficient("w", "p", 258),
+      get_correlation_coefficient("w", "p", 259),
+      get_correlation_coefficient("w", "p", 260),
+      get_correlation_coefficient("w", "p", 261),
+      get_correlation_coefficient("w", "p", 262),
+      get_correlation_coefficient("w", "p", 263),
+      get_correlation_coefficient("w", "p", 264),
       1
     )
   )
@@ -196,8 +604,8 @@ get_dataset <- function(n = 1000) {
   n = 1000
   d <- genCorData(
     n,
-    mu = c(25, 0.5, 1, 42, 4, 13, 4.5, 3.8, 0.1, 22, 25, 65),
-    sigma = c(2, 0.1, 3, 3, 1, 2, 1.1, 1.1, 1, 1.5, 5, 10),
+    mu = c(25, 0.5, 1, 42, 4, 13, 4.5, 3.8, 0.1, 22, 25, 76, 83, 94, 500, 1000, 800, 179, 2.3, 1.8,  8.3, 5.7, 0.1),
+    sigma = c(2, 0.4, 3, 3, 1, 2, 1.1, 1.1, 1.0, 1.5, 6.0, 3.2, 3.4, 3.6, 10, 50, 40, 16, 0.8, 0.8, 4, 1.2, 0.3),
     corMatrix = cov_mat,
     cnames = cnames
   )
@@ -212,11 +620,28 @@ get_dataset <- function(n = 1000) {
   d$wellbeing <- rescale(d$wellbeing, to = c(1, 5))
   d$caffeine <- rescale(d$caffeine, to = c(0, 1))
   d$caffeine <- ifelse(d$caffeine < 0.6, 0, 1)
+  d$push_ups <- as.integer(d$push_ups)
+  d$caloric_morning <- as.integer(d$caloric_morning)
+  d$caloric_lunch <- as.integer(d$caloric_lunch)
+  d$caloric_evening <- as.integer(d$caloric_evening)
+  d$heart_rate_t1 <- as.integer(d$heart_rate_t1)
+  d$heart_rate_t2 <- as.integer(d$heart_rate_t2)
+  d$heart_rate_t3 <- as.integer(d$heart_rate_t3)
+  d$carb_intake <- rescale(round(d$carb_intake), to = c(1, 3))
+  d$carb_intake <- ifelse(d$carb_intake < 1.8, 1, ifelse(d$carb_intake > 1.8, 3, 2))
+  d$sport_type <- rescale(round(d$sport_type), to = c(1,3))
+  d$sport_type <- ifelse(d$sport_type < 2.2, 1, ifelse(d$sport_type > 2.2, 3, 2))
+  d$hours_of_sleep <- round(rescale(d$hours_of_sleep, to = c(4, 12)))
+  d$optimism <- rescale(d$optimism, to = c(1, 7))
+  d$playing_status <- round(rescale(d$playing_status, to = c(0, 1)))
 
   # More data wrangling
   d$gender <- factor(d$gender, levels = 0:1, labels = c("Female", "Male"))
   d$ethnicity <- factor(d$ethnicity, levels = 1:5, labels = c("Asian", "Hispanic", "Caucasian", "African-American", "Multiracial"))
   d$caffeine <- factor(d$caffeine, levels = 0:1, labels = c("Non-ingester", "Ingester"))
+  d$carb_intake <- factor(d$carb_intake, levels = 1:3, labels = c("Low", "Medium", "High"))
+  d$sport_type <- factor(d$sport_type, levels = 1:3, labels = c("Basketball","Baseball", "Hockey"))
+  d$playing_status <- factor(d$playing_status, levels = 0:1, labels = c("Injured", "Non-injured"))
   d <- as.data.frame(d)
   d <- d[order(colnames(d))]
   d <- d[, ! colnames(d) %in% "id"]
